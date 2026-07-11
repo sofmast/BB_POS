@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+Purchase Management
+</title>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+>
+
+<link
+rel="stylesheet"
+href="ADMIN/phist.css"
+>
+<link rel="stylesheet" href="CSS/globalModal.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>
+
+Purchase Management
+
+</h1>
+
+<div>
+
+<a
+href="phistTable.html"
+class="btn add"
+id="purTableButton">
+
+<i class="fas fa-eye"></i>
+
+Show items
+
+</a>
+
+<a
+href="products.html"
+class="btn add"
+>
+
+<i class="fas fa-plus"></i>
+
+Products / Stock
+
+</a>
+
+
+<a
+href="purchase.html"
+class="btn add"
+>
+
+<i class="fas fa-plus"></i>
+
+New Purchase
+
+</a>
+
+
+<a
+href="index.html"
+class="btn"
+>
+
+Back To POS
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- TOOLBAR -->
+
+<div class="toolbar">
+
+<div class="search-wrapper">
+
+<i class="fas fa-search"></i>
+
+<input
+type="text"
+id="purchaseSearch"
+placeholder="Search supplier or receipt..."
+>
+
+</div>
+
+</div>
+
+
+
+<!-- PURCHASE TABLE -->
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Receipt ID</th>
+
+<th>Supplier</th>
+
+<th>Date</th>
+
+<th>Items</th>
+
+<th>Total</th>
+
+<th></th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="purchaseTableBody"
+>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+
+<!-- VIEW PURCHASE MODAL -->
+
+<div
+class="modal"
+id="purchaseActionModal"
+>
+
+<div
+class="modal-content action-modal"
+>
+
+<div class="modal-header">
+
+<h2
+id="receiptTitle"
+>
+
+Purchase
+
+</h2>
+
+<button
+id="closePurchaseModal"
+>
+
+<i class="fas fa-times"></i>
+
+</button>
+
+</div>
+
+
+<div
+class="purchase-details"
+>
+
+<p>
+
+<strong>Supplier:</strong>
+
+<span
+id="purchaseSupplier"
+></span>
+
+</p>
+
+
+<p>
+
+<strong>Date:</strong>
+
+<span
+id="purchaseDate"
+></span>
+
+</p>
+
+
+<p>
+
+<strong>Total:</strong>
+
+<span
+id="totalDisplay"
+></span>
+
+</p>
+
+</div>
+
+
+<h3 class="section-title">
+
+Purchased Items
+
+</h3>
+
+
+<div
+class="items-wrapper"
+>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Qty</th>
+
+<th>Cost</th>
+
+<th>Subtotal</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="purchaseItemsTable"
+>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<div
+class="action-buttons"
+>
+
+<button
+id="editPurchaseBtn"
+>
+
+<i class="fas fa-pen"></i>
+
+Edit Purchase
+
+</button>
+
+
+<button
+id="deletePurchaseBtn"
+>
+
+<i class="fas fa-trash"></i>
+
+Delete Purchase
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- EDIT PURCHASE MODAL -->
+
+<div
+class="modal"
+id="editPurchaseModal"
+>
+
+<div
+class="modal-content"
+>
+
+<h2>
+
+Edit Purchase
+
+</h2>
+
+
+<input
+type="hidden"
+id="editPurchaseId"
+>
+
+
+<h3 class="labo">
+
+Supplier
+
+</h3>
+
+<input
+id="editSupplier"
+type="text"
+placeholder="Supplier Name"
+>
+
+
+<div
+class="edit-items-container"
+id="editItemsContainer"
+>
+
+</div>
+
+
+<button
+class="add-item-btn"
+id="addItemBtn"
+>
+
+<i class="fas fa-plus"></i>
+
+Add Item
+
+</button>
+
+
+<div
+class="modal-actions"
+>
+
+<button
+id="savePurchaseBtn"
+>
+
+Save Changes
+
+</button>
+
+
+<button
+id="closeEditPurchaseBtn"
+>
+
+Cancel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!--====================================
+GLOBAL MESSAGE MODAL
+=====================================-->
+
+<div
+class="custom-modal"
+id="customModal">
+
+    <div class="modal-box">
+
+        <div
+        class="modal-icon"
+        id="modalIcon">
+
+            <i class="fa fa-check"></i>
+
+        </div>
+
+        <h3 id="modalTitle">
+
+            Success
+
+        </h3>
+
+        <p id="modalMessage">
+
+        </p>
+
+        <button
+        class="modal-btn"
+        id="closeGlobalModal">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<footer
+id="babbageFooter"
+></footer>
+
+
+<script src="JS/auth.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="STORAGE/storage.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="JS/inventoryEngine.js"></script>
+<script src="ADMIN/phist.js"></script>
+
+</body>
+
+</html>
+

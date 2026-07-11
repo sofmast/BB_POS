@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Staff Management</title>
+
+<link rel="stylesheet" href="CSS/globalModal.css">
+
+<link
+rel="stylesheet"
+href="CSS/staff-list.css">
+
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="report-page">
+
+    <!--==================================
+    HEADER
+    ===================================-->
+
+    <header class="report-header">
+
+        <div>
+
+            <h1>
+
+                Staff Management
+
+            </h1>
+
+            <p>
+
+                Manage employees, permissions and payroll information.
+
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a
+            href="createStaff.html">
+
+                <i class="fa fa-user-plus"></i>
+
+                Register Staff
+
+            </a>
+
+            <a
+            href="index.html">
+
+                <i class="fa fa-store"></i>
+
+                POS
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!--==================================
+    SUMMARY
+    ===================================-->
+
+    <section class="summary-grid">
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa fa-users"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+
+                    Total Staff
+
+                </span>
+
+                <h2 id="totalStaff">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa fa-user-check"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+
+                    Active
+
+                </span>
+
+                <h2 id="activeStaff">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa fa-user-slash"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+
+                    Suspended
+
+                </span>
+
+                <h2 id="suspendedStaff">
+
+                    0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa fa-wallet"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+
+                    Monthly Payroll
+
+                </span>
+
+                <h2 id="monthlyPayroll">
+
+                    K0
+
+                </h2>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--==================================
+    FILTER BAR
+    ===================================-->
+
+    <section class="filter-bar">
+
+        <div class="search-box">
+
+            <i class="fa fa-search"></i>
+
+            <input
+
+            id="searchStaff"
+
+            placeholder="Search staff...">
+
+        </div>
+
+        <select id="departmentFilter">
+
+            <option value="">
+
+                All Departments
+
+            </option>
+
+        </select>
+
+        <select id="accessFilter">
+
+            <option value="">
+
+                All Access
+
+            </option>
+
+            <option>
+
+                Administrator
+
+            </option>
+
+            <option>
+
+                Supervisor
+
+            </option>
+
+            <option>
+
+                Cashier
+
+            </option>
+
+            <option>
+
+                Store Keeper
+
+            </option>
+
+            <option>
+
+                Sales
+
+            </option>
+
+            <option>
+
+                View Only
+
+            </option>
+
+        </select>
+
+        <select id="statusFilter">
+
+            <option value="">
+
+                All Status
+
+            </option>
+
+            <option>
+
+                Active
+
+            </option>
+
+            <option>
+
+                On Leave
+
+            </option>
+
+            <option>
+
+                Suspended
+
+            </option>
+
+            <option>
+
+                Resigned
+
+            </option>
+
+            <option>
+
+                Terminated
+
+            </option>
+
+        </select>
+
+        <button id="exportExcel">
+
+            <i class="fa fa-file-excel"></i>
+
+            Excel
+
+        </button>
+
+    </section>
+
+    <!--==================================
+    TABLE
+    ===================================-->
+
+    <section class="table-card">
+
+        <div class="table-header">
+
+            <h2>
+
+                Employees
+
+            </h2>
+
+            <span id="recordCount">
+
+                0 Records
+
+            </span>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Photo</th>
+
+                        <th>Staff No</th>
+
+                        <th>Name</th>
+
+                        <th>Department</th>
+
+                        <th>Position</th>
+
+                        <th>Phone</th>
+
+                        <th>Salary</th>
+
+                        <th>Status</th>
+
+                        <th>Access</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="staffTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!--====================================
+GLOBAL MESSAGE MODAL
+=====================================-->
+
+<div
+class="custom-modal"
+id="customModal">
+
+    <div class="modal-box">
+
+        <div
+        class="modal-icon"
+        id="modalIcon">
+
+            <i class="fa fa-check"></i>
+
+        </div>
+
+        <h3 id="modalTitle">
+
+            Success
+
+        </h3>
+
+        <p id="modalMessage">
+
+        </p>
+
+        <button
+        class="modal-btn"
+        id="closeGlobalModal">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="JS/auth.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="JS/utils.js"></script>
+<script src="JS/gad.js"></script>
+<script src="ADMIN/staff-List.js"></script>
+
+</body>
+
+</html>

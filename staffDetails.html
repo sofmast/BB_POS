@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Staff Details</title>
+
+<link
+rel="stylesheet"
+href="ADMIN/staff-details.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="details-page">
+
+    <!--=====================================
+    HEADER
+    ======================================-->
+
+    <header class="details-header">
+
+        <div>
+
+            <h1>
+
+                Employee Profile
+
+            </h1>
+
+            <p>
+
+                View complete employee information
+
+            </p>
+
+        </div>
+
+        <div class="header-buttons">
+
+            <a
+            href="staff-list.html">
+
+                <i class="fa fa-arrow-left"></i>
+
+                Staff List
+
+            </a>
+
+            <button id="editBtn">
+
+                <i class="fa fa-pen"></i>
+
+                Edit Staff
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!--=====================================
+    PROFILE
+    ======================================-->
+
+    <section class="profile-card">
+
+        <div class="profile-left">
+
+            <img
+            id="staffPhoto"
+            src="https://via.placeholder.com/180"
+            class="profile-photo">
+
+            <h2
+            id="staffName">
+
+                Staff Name
+
+            </h2>
+
+            <span
+            id="staffPosition">
+
+                Position
+
+            </span>
+
+            <div
+            id="statusBadge">
+
+            </div>
+
+        </div>
+
+        <div class="profile-right">
+
+            <div class="mini-card">
+
+                <span>
+
+                    Staff Number
+
+                </span>
+
+                <h3 id="staffNumber">
+
+                    -
+
+                </h3>
+
+            </div>
+
+            <div class="mini-card">
+
+                <span>
+
+                    Department
+
+                </span>
+
+                <h3 id="staffDepartment">
+
+                    -
+
+                </h3>
+
+            </div>
+
+            <div class="mini-card">
+
+                <span>
+
+                    Salary
+
+                </span>
+
+                <h3 id="staffSalary">
+
+                    K0.00
+
+                </h3>
+
+            </div>
+
+            <div class="mini-card">
+
+                <span>
+
+                    Access Level
+
+                </span>
+
+                <h3 id="staffAccess">
+
+                    -
+
+                </h3>
+
+            </div>
+
+            <div class="mini-card">
+
+                <span>
+
+                    Created
+
+                </span>
+
+                <h3 id="createdDate">
+
+                    -
+
+                </h3>
+
+            </div>
+
+            <div class="mini-card">
+
+                <span>
+
+                    Updated
+
+                </span>
+
+                <h3 id="updatedDate">
+
+                    -
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=====================================
+    PERSONAL
+    ======================================-->
+
+    <section class="info-card">
+
+        <h2>
+
+            Personal Information
+
+        </h2>
+
+        <div class="info-grid">
+
+            <div>
+
+                <label>
+
+                    First Name
+
+                </label>
+
+                <p id="firstName">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Last Name
+
+                </label>
+
+                <p id="lastName">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    NRC
+
+                </label>
+
+                <p id="staffNrc">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Phone
+
+                </label>
+
+                <p id="staffPhone">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Email
+
+                </label>
+
+                <p id="staffEmail">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Username
+
+                </label>
+
+                <p id="staffUsername">
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=====================================
+    EMPLOYMENT
+    ======================================-->
+
+    <section class="info-card">
+
+        <h2>
+
+            Employment Information
+
+        </h2>
+
+        <div class="info-grid">
+
+            <div>
+
+                <label>
+
+                    Department
+
+                </label>
+
+                <p id="employmentDepartment">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Position
+
+                </label>
+
+                <p id="employmentPosition">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Salary
+
+                </label>
+
+                <p id="employmentSalary">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Status
+
+                </label>
+
+                <p id="employmentStatus">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Access
+
+                </label>
+
+                <p id="employmentAccess">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Blacklisted
+
+                </label>
+
+                <p id="employmentBlacklist">
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=====================================
+    ACCOUNT
+    ======================================-->
+
+    <section class="info-card">
+
+        <h2>
+
+            Account Information
+
+        </h2>
+
+        <div class="info-grid">
+
+            <div>
+
+                <label>
+
+                    Last Login
+
+                </label>
+
+                <p id="lastLogin">
+
+                    Never
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Date Created
+
+                </label>
+
+                <p id="accountCreated">
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Last Updated
+
+                </label>
+
+                <p id="accountUpdated">
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=====================================
+    ACTIONS
+    ======================================-->
+
+    <section class="action-bar">
+
+        <button
+        id="editStaffBtn">
+
+            <i class="fa fa-pen"></i>
+
+            Edit
+
+        </button>
+
+        <button
+        id="resetPasswordBtn">
+
+            <i class="fa fa-key"></i>
+
+            Reset Password
+
+        </button>
+
+        <button
+        id="suspendBtn">
+
+            <i class="fa fa-user-slash"></i>
+
+            Suspend
+
+        </button>
+
+        <button
+        id="deleteBtn">
+
+            <i class="fa fa-trash"></i>
+
+            Delete
+
+        </button>
+
+    </section>
+
+</div>
+
+<script src="JS/utils.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="ADMIN/staff-Details.js"></script>
+
+</body>
+
+</html>

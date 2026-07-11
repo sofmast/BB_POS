@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Product Report</title>
+
+    <link
+        rel="stylesheet"
+        href="CSS/pr.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+           <link rel="stylesheet" href="CSS/globalModal.css">
+</head>
+
+<body>
+
+<div class="report-page">
+
+    <!-- HAMBURGER MENU -->
+    <button id="menuToggle" class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- HEADER -->
+    <header class="report-header">
+
+        <div>
+            <h1>Admin  control Panel</h1>
+            <p>More access and Control</p>
+        </div>
+
+        <div class="header-actions">
+
+            <a href="index.html">
+                <i class="fas fa-cash-register"></i>
+                POS
+            </a>
+
+            <a href="product-report.html">
+                <i class="fas fa-chart-line"></i>
+                Reports
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <section class="report-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="report-sidebar" id="sidebar">
+<a href="index.html">
+    <i class="fa-solid fa-home" id="logoutBtn"></i>
+  Home
+</a>
+          
+            <h3>More</h3>
+
+            <hr>
+            <a href="createStaff.html">
+                <i class="fas fa-user"></i>
+                Create User
+            </a>
+            <a href="products.html">
+                <i class="fas fa-box"></i>
+                Products
+            </a>
+
+            <a href="purchase.html">
+                <i class="fas fa-shopping-cart"></i>
+                Purchase
+            </a>
+
+            <a href="reports.html">
+                <i class="fas fa-chart-line"></i>
+                Reports
+            </a>
+            <a href="sales.html">
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-clock"></i>
+                Sales History
+            </a>
+            <a href="phistTable.html">
+                <i class="fas fa-history"></i>
+                Sales History
+            </a>
+
+            <a id="futaBtn" href="#">
+                <i class="fas fa-lock"></i>
+                Reset App
+            </a>
+
+            <hr>
+
+        </aside>
+
+        <!-- CONTENT -->
+        <main class="report-content">
+
+            <!-- FILTER BAR -->
+            <section class="filter-bar">
+
+                <div class="search-box">
+
+                    <i class="fas fa-search"></i>
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search product..." readonly>
+
+                </div>
+
+                <select id="categoryFilter">
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+                </select>
+
+                <select id="periodFilter">
+
+                    <option value="today">
+                        Today
+                    </option>
+
+                    <option value="week">
+                        This Week
+                    </option>
+
+                    <option value="month">
+                        This Month
+                    </option>
+
+                    <option value="all">
+                        All Time
+                    </option>
+
+                </select>
+
+
+
+            </section>
+
+            <!-- PRODUCT TABLE -->
+            <section class="table-card">
+
+                <div class="table-header">
+
+                    <h2 id="karerentUser">System Admin</h2>
+
+                    <span id="recordCount">
+                        Hello
+                    </span>
+
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="reportTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+</div>
+
+
+
+<!--====================================
+GLOBAL MESSAGE MODAL
+=====================================-->
+
+<div
+class="custom-modal"
+id="customModal">
+
+    <div class="modal-box">
+
+        <div
+        class="modal-icon"
+        id="modalIcon">
+
+            <i class="fa fa-check"></i>
+
+        </div>
+
+        <h3 id="modalTitle">
+
+            Success
+
+        </h3>
+
+        <p id="modalMessage">
+
+        </p>
+
+        <button
+        class="modal-btn"
+        id="closeGlobalModal">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="JS/auth.js"></script>
+<script src="JS/utils.js"></script>
+<script src="JS/products.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="ADMIN/soccer.js"></script>
+<script src="JS/pr.js"></script>
+<script src="ADMIN/doom.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Sales History</title>
+
+<link rel="stylesheet"
+href="CSS/sales-history.css">
+<link rel="stylesheet" href="CSS/globalModal.css">
+<link rel="stylesheet" href="CSS/saleEditModal.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+<!-- SIDEBAR OVERLAY -->
+
+<div id="sidebarOverlay"></div>
+
+
+<!-- SIDEBAR -->
+
+<aside
+class="sidebar"
+id="sidebar"
+>
+
+<div class="sidebar-header">
+
+<h2 >
+
+Babbage POS
+
+</h2>
+<br>
+<hr>
+
+<br>
+<p>
+
+Sales Center
+
+</p>
+
+</div>
+
+
+<nav class="sidebar-menu">
+
+<a href="index.html">
+
+<i class="fas fa-home"></i>
+
+Home
+
+</a>
+
+
+<a id="tableViewLink">
+
+<i class="fas fa-table"></i>
+
+Sales
+
+</a>
+
+
+<a id="salesCardsViewLink">
+
+<i class="fas fa-receipt"></i>
+
+Sales Receipts
+
+</a>
+
+<a href="product-report.html">
+
+    <i class="fas fa-chart-column"></i>
+
+    <span>
+
+        Reports
+
+    </span>
+
+</a>
+
+<a id="todayDataLink">
+
+<i class="fas fa-calendar-day"></i>
+
+Today's Data
+
+</a>
+
+
+<a id="thisMonthDataLink">
+
+<i class="fas fa-calendar"></i>
+
+This Month
+
+</a>
+
+</nav>
+
+
+<div class="sidebar-stats">
+
+<h4>
+
+Quick Summary
+
+</h4>
+
+<div class="stat-row">
+
+<span>
+
+Transactions
+
+</span>
+
+<strong
+id="sideTransactions"
+>
+
+0
+
+</strong>
+
+</div>
+
+
+<div class="stat-row">
+
+<span>
+
+Revenue
+
+</span>
+
+<strong
+id="sideRevenue"
+>
+
+K0.00
+
+</strong>
+
+</div>
+
+
+<div class="stat-row">
+
+<span>
+
+Today
+
+</span>
+
+<strong
+id="sideToday"
+>
+
+K0.00
+
+</strong>
+
+</div>
+
+
+<div class="stat-row">
+
+<span>
+
+Month
+
+</span>
+
+<strong
+id="sideMonth"
+>
+
+K0.00
+
+</strong>
+
+</div>
+
+</div>
+
+</aside>
+<div class="container">
+
+   <div class="header">
+
+<button
+id="menuToggle"
+class="menu-toggle"
+>
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+<h1>
+
+Sales History
+
+</h1>
+
+</div>
+
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="searchSale"
+            placeholder="Search Receipt">
+
+    </div>
+
+    <div class="stats">
+
+        <div class="card">
+
+            <h3>
+
+                Transactions
+
+            </h3>
+
+            <p id="totalTransactions">
+                0
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+
+                Revenue
+
+            </h3>
+
+            <p id="totalRevenue">
+                K0.00
+            </p>
+
+        </div>
+
+        <div class="card">
+
+    <h3>
+
+        Today's Sales
+
+    </h3>
+
+    <p id="todaySales">
+
+        K0.00
+
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h3>
+
+        Monthly Sales
+
+    </h3>
+
+    <p id="monthlySales">
+
+        K0.00
+
+    </p>
+
+</div>
+
+    </div>
+
+  <div
+id="salesContainer"
+class="sales-grid SalesTable">
+</div>
+
+</div>
+
+<!--CONFIRMATION MODAL-->
+
+<div
+    class="confirm-modal"
+    id="confirmModal">
+
+    <div class="confirm-box">
+
+        <h3 id="confirmTitle">
+
+            Confirm Action
+
+        </h3>
+
+        <p id="confirmMessage">
+
+            Are you sure?
+
+        </p>
+
+        <div class="confirm-actions">
+
+            <button
+                id="confirmCancel">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="confirmOk">
+
+                OK
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--EDIT MODAL-->
+<div id="editSaleModal" class="edit-modal">
+
+<div class="edit-box">
+
+<h2 class="hedas-header">
+Edit Sale
+</h2>
+
+<input
+type="hidden"
+id="editSaleId">
+
+<div id="editItemsContainer">
+
+</div>
+
+<div class="edit-actions">
+
+<button id="cancelEdit">
+
+Cancel
+
+</button>
+
+<button id="saveEdit">
+
+Save Changes
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+<!--END OF CONFIRMATION MODAL-->
+
+
+<!--====================================
+GLOBAL MESSAGE MODAL
+=====================================-->
+
+<div
+class="custom-modal"
+id="customModal">
+
+    <div class="modal-box">
+
+        <div
+        class="modal-icon"
+        id="modalIcon">
+
+            <i class="fa fa-check"></i>
+
+        </div>
+
+        <h3 id="modalTitle">
+
+            Success
+
+        </h3>
+
+        <p id="modalMessage">
+
+        </p>
+
+        <button
+        class="modal-btn"
+        id="closeGlobalModal">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="JS/auth.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="JS/utils.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="STORAGE/storage.js"></script>
+<script src="JS/inventoryEngine.js"></script>
+<script src="JS/sales-history.js"></script>
+<!--script src="ADMIN/sCardRender.js"></script-->
+</body>
+</html>

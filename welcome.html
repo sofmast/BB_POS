@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Welcome</title>
+
+<style>
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+}
+
+/* ==========================
+   PAGE
+========================== */
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#ffffff;
+
+color:#202124;
+
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.container{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+.logo{
+
+font-size:48px;
+
+font-weight:300;
+
+letter-spacing:-2px;
+
+margin-bottom:15px;
+
+color:#535353;
+
+}
+.logo span{
+   font-size:48px;
+
+font-weight:900;
+
+letter-spacing:-2px;
+
+margin-bottom:15px;
+
+color:#f77b15; 
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.subtitle{
+
+font-size:16px;
+
+color:#5f6368;
+
+margin-bottom:50px;
+
+max-width:400px;
+
+line-height:1.6;
+
+}
+
+
+/*small*/
+
+small{
+ color:#d38443; 
+font-family: Arial, Helvetica, sans-serif;
+padding: 10px;
+font-size: 14px;
+font-weight: 400;   
+}
+
+/* ==========================
+   ROUND BUTTON
+========================== */
+
+.pos-btn{
+
+width:140px;
+
+height:140px;
+
+border:none;
+
+border-radius:50%;
+
+background:#ffffff;
+
+color:#f97316;
+
+font-size:18px;
+
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:
+0 4px 20px
+rgba(0,0,0,.08);
+
+transition:.3s;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+}
+
+.pos-btn:hover{
+
+transform:
+translateY(-5px);
+
+box-shadow:
+0 15px 40px
+rgba(0,0,0,.12);
+
+background:#fff7ed;
+
+}
+
+.pos-btn:active{
+
+transform:
+scale(.98);
+
+}
+
+.footer{
+
+margin-top:50px;
+
+font-size:13px;
+
+color:#9ca3af;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+       <p>
+        <span>P</span>OS
+       </p>
+   
+    </div>
+
+    <p class="subtitle">
+        Fast. Reliable. <br>
+        Manage inventory, sales and purchases
+        from one place.
+    </p>
+
+    <a
+    href="login.html"
+    class="pos-btn">
+
+        Open POS
+
+    </a>
+
+    <div class="footer">
+         Babbage Point of Sale System
+    </div>
+
+</div>
+
+</body>
+</html>

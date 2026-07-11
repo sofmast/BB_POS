@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Register Staff</title>
+
+<link
+rel="stylesheet"
+href="ADMIN/Create-staff.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="CSS/globalModal.css">
+</head>
+
+<body>
+
+<div class="staff-page">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="page-header">
+
+        <div>
+
+            <h1 id="formTitle">
+
+                Staff Registration
+
+            </h1>
+
+            <p>
+
+                Register and manage employees who can access the POS.
+
+            </p>
+
+        </div>
+
+        <div class="header-buttons">
+
+            <a
+            href="staff-list.html"
+            class="btn-light">
+
+                <i class="fa fa-users"></i>
+
+                Staff List
+
+            </a>
+
+            <a
+            href="index.html"
+            class="btn-primary">
+
+                <i class="fa fa-arrow-left"></i>
+
+                POS
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+         BODY
+    ========================== -->
+
+    <div class="staff-layout">
+
+        <!-- LEFT -->
+
+        <aside class="staff-info">
+
+            <div class="info-card">
+
+                <div class="profile-upload">
+
+    <input
+        type="file"
+        id="photo"
+        accept="image/*"
+        hidden>
+
+    <label
+        for="photo"
+        class="profile-circle">
+
+        <img
+            id="photoPreview"
+            src="https://via.placeholder.com/140x140/f8fafc/f97316?text=%F0%9F%91%A4"
+            alt="Profile">
+
+    </label>
+
+    <button
+        type="button"
+        id="changePhoto"
+        class="photo-btn">
+
+        <i class="fa fa-camera"></i>
+
+        Choose Photo
+
+    </button>
+
+</div>
+        </aside>
+
+        <!-- RIGHT -->
+
+        <main>
+
+            <form id="staffForm">
+
+                <input
+                type="hidden"
+                id="staffId">
+
+                <!-- PERSONAL -->
+
+                <section class="form-card">
+
+                    <h3>
+
+                        Personal Information
+
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label>
+
+                                Staff Number
+
+                            </label>
+
+                            <input
+                            id="manNumber"
+                            required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                First Name
+
+                            </label>
+
+                            <input
+                            id="firstName"
+                            required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Last Name
+
+                            </label>
+
+                            <input
+                            id="lastName"
+                            required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                NRC
+
+                            </label>
+
+                            <input
+                            id="nrc">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Phone Number
+
+                            </label>
+
+                            <input
+                            id="phone">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Email
+
+                            </label>
+
+                            <input
+                            type="email"
+                            id="email">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- EMPLOYMENT -->
+
+                <section class="form-card">
+
+                    <h3>
+
+                        Employment Information
+
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label>
+
+                                Department
+
+                            </label>
+
+                            <select id="department">
+
+                                <option>Administration</option>
+
+                                <option>Accounts</option>
+
+                                <option>Sales</option>
+
+                                <option>Stores</option>
+
+                                <option>Procurement</option>
+
+                                <option>IT</option>
+
+                                <option>Human Resource</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Position
+
+                            </label>
+
+                            <select id="role">
+
+                                <option>Manager</option>
+
+                                <option>Supervisor</option>
+
+                                <option>Cashier</option>
+
+                                <option>Sales Assistant</option>
+
+                                <option>Store Keeper</option>
+
+                                <option>Accountant</option>
+
+                                <option>Administrator</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Monthly Salary
+
+                            </label>
+
+                            <input
+                            type="number"
+                            id="salary">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Access Level
+
+                            </label>
+
+                            <select id="access">
+                                <option>View Only</option>
+                                <option>Supervisor</option>
+                                <option>Cashier</option>
+                                <option>Store Keeper</option>
+                                <option>Sales</option>
+                                <option>Administrator</option>
+                                   <option>Director</option>
+
+                                
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Employment Status
+
+                            </label>
+
+                            <select id="status">
+
+                                <option>Active</option>
+
+                                <option>On Leave</option>
+
+                                <option>Suspended</option>
+
+                                <option>Resigned</option>
+
+                                <option>Terminated</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- LOGIN -->
+
+                <section class="form-card">
+
+                    <h3>
+
+                        Login Credentials
+
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label>
+
+                                Username
+
+                            </label>
+
+                            <input
+                            id="username">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Password
+
+                            </label>
+
+                            <input
+                            type="password"
+                            id="password">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label>
+
+                                Confirm Password
+
+                            </label>
+
+                            <input
+                            type="password"
+                            id="confirmPassword">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- BUTTONS -->
+
+                <div class="form-actions">
+
+                    <a
+                    href="staff-list.html"
+                    class="btn-light">
+
+                        Cancel
+
+                    </a>
+
+                    <button
+                    class="btn-primary">
+
+                        <i class="fa fa-save"></i>
+
+                        Save Staff
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</div>
+
+<!-- GLOBAL MODAL -->
+<div class="custom-modal" id="customModal">
+
+    <div class="modal-box">
+
+        <div class="modal-icon" id="modalIcon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h2 id="modalTitle">Success</h2>
+
+        <p id="modalMessage">
+            Product saved successfully.
+        </p>
+
+        <button id="closeGlobalModal" class="modal-btn">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<script src="JS/auth.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="JS/utils.js"></script>
+<script src="ADMIN/soccer.js"></script>
+<script src="ADMIN/staff.js"></script>
+
+</body>
+
+</html>

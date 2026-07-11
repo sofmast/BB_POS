@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Purchase Inventory</title>
+
+<link
+rel="stylesheet"
+href="CSS/purchase.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="CSS/globalModal.css">
+</head>
+
+<body>
+
+<div class="purchase-page">
+
+    <!-- HEADER -->
+
+    <header class="purchase-header">
+
+        <div>
+
+            <h1>
+                Purchase Inventory
+            </h1>
+
+            <p>
+                Receive stock from suppliers
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a href="index.html">
+
+                <i class="fas fa-cash-register"></i>
+
+                POS
+
+            </a>
+
+            <a href="phist.html">
+
+                <i class="fas fa-history"></i>
+
+                Purchase History
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- TOP SECTION -->
+
+    <section class="top-bar">
+
+        <div class="supplier-box">
+
+            <label>
+
+                Supplier
+
+            </label>
+
+            <input
+                type="text"
+                id="supplierName"
+                placeholder="Supplier name">
+
+        </div>
+
+        <div class="search-box">
+
+            <label>
+
+                Search Product
+
+            </label>
+
+            <input
+                type="text"
+                id="purchaseSearch"
+                placeholder="Search inventory">
+
+        </div>
+
+    </section>
+
+    <!-- MAIN CONTENT -->
+
+    <section class="purchase-layout">
+
+        <!-- PRODUCTS -->
+
+        <div class="products-panel">
+
+            <div class="panel-title">
+
+                <h2>
+
+                    Inventory Products
+
+                </h2>
+
+                <span id="productCount">
+
+                    0 Products
+
+                </span>
+
+            </div>
+
+            <div
+                id="purchaseProductGrid"
+                class="purchase-product-grid">
+
+            </div>
+
+        </div>
+
+        <!-- PURCHASE CART -->
+
+        <div class="cart-panel">
+
+            <div class="panel-title">
+
+                <h2>
+
+                    Purchase Cart
+
+                </h2>
+
+            </div>
+
+            <div
+                id="purchaseItems"
+                class="purchase-items">
+
+                <div class="empty-state">
+
+                    <i class="fas fa-cart-plus"></i>
+
+                    <p>
+
+                        No items added
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="purchase-total">
+
+                    <span>
+
+                        Total Purchase
+
+                    </span>
+
+                    <h2
+                        id="totalDisplay">
+
+                        K0.00
+
+                    </h2>
+
+                </div>
+
+                <button
+                    id="completePurchaseBtn">
+
+                    <i class="fas fa-check-circle"></i>
+
+                    Complete Purchase
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- GLOBAL MODAL -->
+<div class="custom-modal" id="customModal">
+
+    <div class="modal-box">
+
+        <div class="modal-icon" id="modalIcon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h3 id="modalTitle">Success</h3>
+
+        <p id="modalMessage">
+            Product saved successfully.
+        </p>
+
+        <button id="closeGlobalModal" class="modal-btn">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<script src="JS/auth.js"></script>
+<script src="ADMIN/authEngine.js"></script>
+<script src="STORAGE/storage.js"></script>
+<script src="JS/utils.js"></script>
+<script src="JS/globalModal.js"></script>
+<script src="JS/products.js"></script>
+<script src="JS/inventoryEngine.js"></script>
+<script src="JS/puchase.js"></script>
+<script src="ADMIN/soccer.js"></script>
+
+
+</body>
+
+</html>

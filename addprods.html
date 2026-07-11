@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Add Product</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* ======================================
+RESET
+====================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+:root{
+
+--bg:#f8fafc;
+--card:#ffffff;
+--primary:#eb9525;
+--text:#1e293b;
+--muted:#64748b;
+--border:#e2e8f0;
+
+--shadow:
+0 6px 24px rgba(15,23,42,.06);
+
+--shadow-hover:
+0 10px 30px rgba(15,23,42,.12);
+
+}
+
+
+/* ======================================
+BODY
+====================================== */
+
+body{
+
+background:var(--bg);
+
+min-height:100vh;
+
+padding:20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+/* ======================================
+CONTAINER
+====================================== */
+
+.container{
+
+width:100%;
+max-width:900px;
+
+}
+
+.card{
+
+background:var(--card);
+
+padding:30px;
+
+border-radius:24px;
+
+box-shadow:var(--shadow);
+
+}
+
+
+/* ======================================
+HEADER
+====================================== */
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:35px;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.header h1{
+
+font-size:32px;
+font-weight:700;
+
+margin-bottom:5px;
+
+color:var(--text);
+
+}
+
+.header p{
+
+color:var(--muted);
+
+}
+
+.header a{
+
+padding:12px 18px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+background:#f1f5f9;
+
+color:var(--primary);
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.header a:hover{
+
+transform:translateY(-2px);
+
+box-shadow:var(--shadow);
+
+}
+
+
+/* ======================================
+PROGRESS
+====================================== */
+
+.progress-wrapper{
+
+margin-bottom:35px;
+
+}
+
+.progress-line{
+
+height:8px;
+
+background:#edf2f7;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin-bottom:20px;
+
+}
+
+.progress-fill{
+
+height:100%;
+width:25%;
+
+background:var(--primary);
+
+transition:.4s;
+
+border-radius:30px;
+
+}
+
+.steps-nav{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:10px;
+
+}
+
+.nav-step{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:8px;
+
+color:var(--muted);
+
+flex:1;
+
+}
+
+.nav-step span{
+
+width:40px;
+height:40px;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+border-radius:50%;
+
+background:#f1f5f9;
+
+font-weight:700;
+
+}
+
+.nav-step.active{
+
+color:var(--primary);
+
+}
+
+.nav-step.active span{
+
+background:var(--primary);
+
+color:white;
+
+}
+
+
+/* ======================================
+FORM
+====================================== */
+
+.step{
+
+display:none;
+
+animation:fade .4s ease;
+
+}
+
+.step.active{
+
+display:block;
+
+}
+
+.step h2{
+
+margin-bottom:25px;
+
+font-size:24px;
+
+color:var(--text);
+
+}
+
+.form-group{
+
+margin-bottom:22px;
+
+}
+
+.form-group label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+color:#475569;
+
+}
+
+.form-group input{
+
+width:100%;
+
+padding:15px;
+
+border:1px solid var(--border);
+
+border-radius:14px;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.form-group input:focus{
+
+border-color:var(--primary);
+
+box-shadow:
+0 0 0 4px rgba(235,149,37,.15);
+
+}
+
+
+/* ======================================
+PROFIT CARD
+====================================== */
+
+.profit-card{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+.profit-item{
+
+background:#fafafa;
+
+padding:20px;
+
+border-radius:16px;
+
+text-align:center;
+
+border:1px solid var(--border);
+
+}
+
+.profit-item span{
+
+display:block;
+
+font-size:13px;
+
+color:var(--muted);
+
+margin-bottom:10px;
+
+}
+
+.profit-item h3{
+
+font-size:22px;
+
+color:var(--primary);
+
+}
+
+
+/* ======================================
+IMAGE
+====================================== */
+
+.image-preview{
+
+display:flex;
+
+justify-content:center;
+
+margin:20px 0;
+
+}
+
+.image-preview img{
+
+width:150px;
+height:150px;
+
+border-radius:16px;
+
+object-fit:cover;
+
+border:3px solid #f1f5f9;
+
+}
+
+
+/* ======================================
+REVIEW
+====================================== */
+
+.review-card{
+
+background:#fafafa;
+
+padding:20px;
+
+border-radius:16px;
+
+border:1px solid var(--border);
+
+margin-top:20px;
+
+}
+
+
+/* ======================================
+BUTTONS
+====================================== */
+
+.form-actions{
+
+display:flex;
+
+justify-content:space-between;
+
+gap:15px;
+
+margin-top:35px;
+
+}
+
+.form-actions button{
+
+flex:1;
+
+padding:15px;
+
+border:none;
+
+border-radius:14px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#prevBtn{
+
+background:#f1f5f9;
+
+}
+
+#nextBtn{
+
+background:#0ea5e9;
+
+color:white;
+
+}
+
+#submitBtn{
+
+display:none;
+
+background:var(--primary);
+
+color:white;
+
+}
+
+.form-actions button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+
+/* ======================================
+TOAST
+====================================== */
+
+.toast{
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+background:#16a34a;
+
+color:white;
+
+padding:14px 18px;
+
+border-radius:12px;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.3s;
+
+}
+
+
+/* ======================================
+ANIMATION
+====================================== */
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ======================================
+RESPONSIVE
+====================================== */
+
+@media(max-width:768px){
+
+.card{
+
+padding:20px;
+
+}
+
+.header{
+
+flex-direction:column;
+align-items:flex-start;
+
+}
+
+.steps-nav{
+
+flex-wrap:wrap;
+
+}
+
+.profit-card{
+
+grid-template-columns:1fr;
+
+}
+
+.form-actions{
+
+flex-direction:column;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+
+<div>
+
+<h1>Add Product</h1>
+
+<p>Create a new inventory item</p>
+
+</div>
+
+<a href="index.html">
+
+<i class="fas fa-arrow-left"></i>
+Back To POS
+
+</a>
+
+</div>
+
+
+<div class="progress-wrapper">
+
+<div class="progress-line">
+
+<div
+id="progressFill"
+class="progress-fill">
+</div>
+
+</div>
+
+<div class="steps-nav">
+
+<div class="nav-step active">
+<span>1</span>
+<small>Product</small>
+</div>
+
+<div class="nav-step">
+<span>2</span>
+<small>Pricing</small>
+</div>
+
+<div class="nav-step">
+<span>3</span>
+<small>Stock</small>
+</div>
+
+<div class="nav-step">
+<span>4</span>
+<small>Review</small>
+</div>
+
+</div>
+
+</div>
+
+
+<form id="productForm">
+
+<div class="form-stage">
+
+<!-- KEEPING ALL ORIGINAL STEPS EXACTLY -->
+
+<!-- Step 1 -->
+<div class="step active">
+
+<h2>Product Information</h2>
+
+<div class="form-group">
+
+<label>Product Name</label>
+
+<input
+type="text"
+id="productName"
+placeholder="Enter product name"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Category</label>
+
+<input
+type="text"
+id="productCategory"
+placeholder="Enter category"
+required>
+
+</div>
+
+</div>
+
+
+<!-- Step 2 -->
+
+<div class="step">
+
+<h2>Pricing Information</h2>
+
+<div class="form-group">
+
+<label>Cost Price</label>
+
+<input
+type="text"
+id="costPrice"
+placeholder="0.00">
+
+</div>
+
+<div class="form-group">
+
+<label>Selling Price</label>
+
+<input
+type="text"
+id="sellingPrice"
+placeholder="0.00">
+
+</div>
+
+<div class="profit-card">
+
+<div class="profit-item">
+
+<span>Profit Per Unit</span>
+
+<h3 id="profitAmount">
+K0.00
+</h3>
+
+</div>
+
+<div class="profit-item">
+
+<span>Profit Margin</span>
+
+<h3 id="profitMargin">
+0%
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Step 3 -->
+
+<div class="step">
+
+<h2>Stock Information</h2>
+
+<div class="form-group">
+
+<label>
+Opening Stock Quantity
+</label>
+
+<input
+type="number"
+id="stockQty"
+placeholder="Enter quantity"
+required>
+
+</div>
+
+</div>
+
+
+<!-- Step 4 -->
+
+<div class="step">
+
+<h2>Product Review</h2>
+
+<div class="form-group">
+
+<label>Product Image URL</label>
+
+<input
+type="text"
+id="productImage"
+placeholder="https://example.com/image.jpg">
+
+</div>
+
+<div class="image-preview">
+
+<img
+id="previewImage"
+src="images/noimage.webp"
+alt="preview">
+
+</div>
+
+<div class="review-card">
+
+<h3 style="margin-bottom:15px">
+
+Product Summary
+
+</h3>
+
+<div id="reviewContent">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="form-actions">
+
+<button
+type="button"
+id="prevBtn">
+
+Previous
+
+</button>
+
+<button
+type="button"
+id="nextBtn">
+
+Next
+
+</button>
+
+<button
+type="submit"
+id="submitBtn">
+
+Save Product
+
+</button>
+
+</div>
+
+</form>
+
+<div
+id="toast"
+class="toast">
+
+</div>
+
+</div>
+
+</div>
+
+<script src="JS/auth.js"></script>
+<script src="JS/apro.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Sales Reports</title>
+    <link
+        rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link
+rel="stylesheet"
+href="CSS/reports.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="reports-container">
+
+    <!-- HEADER -->
+
+    <div class="reports-header">
+
+        <div>
+
+            <h1>
+                Sales Reports
+            </h1>
+
+            <p>
+                Business Performance Dashboard
+            </p>
+
+        </div>
+
+        <a href="index.html">
+
+           <i class="fas fa-home"></i>
+            POS
+
+        </a>
+
+    </div>
+
+    <!-- ACTIONS -->
+
+    <div class="action-bar">
+
+        <button id="exportExcelBtn">
+
+            <i class="fas fa-file-excel"></i>
+            Export Excel
+
+        </button>
+
+        <button id="exportPdfBtn">
+              <i class="fas fa-file-pdf"></i>
+            Export PDF
+
+        </button>
+
+    </div>
+
+    <!-- DAILY CHART -->
+
+    <div class="report-card">
+
+        <h2>
+
+            Daily Sales Trend
+
+        </h2>
+
+        <div class="chart-wrapper">
+
+            <canvas
+            id="dailySalesChart">
+
+            </canvas>
+
+        </div>
+
+    </div>
+
+    <!-- MONTHLY CHART -->
+
+    <div class="report-card">
+
+        <h2>
+
+            Monthly Sales Trend
+
+        </h2>
+
+        <div class="chart-wrapper">
+
+            <canvas
+            id="monthlySalesChart">
+
+            </canvas>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="JS/auth.js"></script>
+<script src="JS/utils.js"></script>
+<script src="JS/reports.js"></script>
+
+</body>
+
+</html>
