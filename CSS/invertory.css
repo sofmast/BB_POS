@@ -1,0 +1,136 @@
+*{
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      margin:0;
+      background:#f4f7fb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .records-container{
+        display: grid;
+        grid-template-columns:150px 150px 150px;
+        gap: 10px;
+      width:100%;
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align:center;
+      color:#1e3a5f;
+      margin-bottom:20px;
+    }
+
+    .step{
+      display:none;
+      animation:fade .3s ease;
+    }
+
+    .step.active{
+      display:block;
+    }
+
+    @keyframes fade{
+      from{opacity:0; transform:translateX(10px);}
+      to{opacity:1; transform:translateX(0);}
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:bold;
+      color:#333;
+    }
+
+    input, select{
+      width:100%;
+      padding:12px;
+      margin-bottom:18px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    button{
+      flex:1;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:bold;
+    }
+
+    .prev-btn{
+      background:#d6d6d6;
+    }
+
+    .next-btn{
+      background:#1e88e5;
+      color:white;
+    }
+
+    .save-btn{
+      background:#0b8f4d;
+      color:white;
+    }
+
+    .message{
+      margin-top:15px;
+      text-align:center;
+      color:green;
+      font-weight:bold;
+    }
+
+    .records{
+      margin-top:30px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+    }
+
+    th, td{
+      border:1px solid #ddd;
+      padding:10px;
+      text-align:left;
+      font-size:14px;
+    }
+
+    th{
+      background:#1e3a5f;
+      color:white;
+    }
+
+    .top-bar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .clear-btn{
+      background:#c62828;
+      color:white;
+      padding:8px 12px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+    }

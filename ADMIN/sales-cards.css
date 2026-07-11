@@ -1,0 +1,235 @@
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:
+"Segoe UI",
+Tahoma,
+sans-serif;
+}
+
+:root{
+
+--primary:#383737;
+
+--primary-dark:#464545;
+
+--success:#16a34a;
+
+--danger:#ef4444;
+
+--bg:#f8fafc;
+
+--card:#ffffff;
+
+--text:#0f172a;
+
+--muted:#64748b;
+
+--border:#e2e8f0;
+
+--shadow:
+0 10px 35px
+rgba(15,23,42,.06);
+
+}
+
+/* SALES GRID */
+
+.sales-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(340px,380px)
+    );
+
+    gap:20px;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+
+/* CARD */
+
+.sale-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:
+    0 8px 30px
+    rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+}
+
+.sale-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+.sale-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:
+    1px solid #eee;
+
+    padding-bottom:12px;
+
+}
+
+
+.sale-id{
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+.sale-date{
+
+    font-size:12px;
+
+    color:#777;
+
+}
+
+
+.sale-items{
+
+    margin-top:15px;
+
+    max-height:180px;
+
+    overflow-y:auto;
+
+}
+
+
+.sale-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:8px 0;
+
+    border-bottom:
+    1px dashed #eee;
+
+    font-size:14px;
+
+}
+
+
+.sale-footer{
+
+    margin-top:15px;
+
+}
+
+
+.sale-summary{
+
+    margin-bottom:15px;
+
+    font-size:14px;
+
+}
+
+.sale-summary div{
+
+    margin-bottom:5px;
+
+}
+
+
+.sale-actions{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+
+.sale-btn{
+
+    border:none;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.edit-btn{
+
+    background:#2196f3;
+    color:white;
+
+}
+
+.delete-btn{
+
+    background:#f44336;
+    color:white;
+
+}
+
+.print-btn{
+
+    background:#4caf50;
+    color:white;
+
+}
+
+.pdf-btn{
+
+    background:#ff5722;
+    color:white;
+
+}
+
+.excel-btn{
+
+    background:#673ab7;
+    color:white;
+
+}

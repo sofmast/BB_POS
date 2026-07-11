@@ -1,0 +1,429 @@
+
+/* ======================================
+BABBAGE POS - PURCHASE TABLE STYLES
+====================================== */
+
+:root{
+
+--bg:#f8fafc;
+--card:#ffffff;
+--primary:#eb9525;
+--text:#1e293b;
+--muted:#64748b;
+--border:#e2e8f0;
+
+--shadow:0 6px 24px rgba(15,23,42,.06);
+--hover:0 10px 30px rgba(15,23,42,.12);
+
+}
+
+/* ======================================
+RESET
+====================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+background:var(--bg);
+padding:25px;
+color:var(--text);
+}
+
+/* ======================================
+CONTAINER
+====================================== */
+
+.container{
+max-width:1400px;
+margin:auto;
+}
+
+/* ======================================
+HEADER (same system as products page)
+====================================== */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+background:var(--card);
+padding:20px 25px;
+border-radius:18px;
+box-shadow:var(--shadow);
+flex-wrap:wrap;
+gap:20px;
+}
+
+.header h1{
+font-size:28px;
+font-weight:600;
+color:#525252;
+}
+
+.header div{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+/* ======================================
+BUTTONS
+====================================== */
+
+.btn{
+padding:12px 18px;
+border-radius:12px;
+text-decoration:none;
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.add{
+background:#f1f5f9;
+color:#334155;
+}
+
+.btn:last-child{
+background:var(--primary);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:var(--hover);
+}
+
+/* ======================================
+SEARCH TOOLBAR
+====================================== */
+
+.toolbar{
+margin-bottom:20px;
+}
+
+.search-wrapper{
+position:relative;
+}
+
+.search-wrapper i{
+position:absolute;
+top:50%;
+left:14px;
+transform:translateY(-50%);
+color:var(--muted);
+}
+
+#purchaseSearch{
+width:100%;
+padding:15px 15px 15px 42px;
+border:1px solid var(--border);
+border-radius:14px;
+font-size:15px;
+background:white;
+box-shadow:var(--shadow);
+outline:none;
+transition:.3s;
+}
+
+#purchaseSearch:focus{
+border-color:var(--primary);
+}
+
+/* ======================================
+TABLE
+====================================== */
+
+.table-wrapper{
+background:white;
+overflow:auto;
+box-shadow:var(--shadow);
+border-radius:14px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+min-width:900px;
+}
+
+thead th{
+background:#474747;
+color:#ddd;
+padding:16px;
+text-align:left;
+font-size:14px;
+}
+
+tbody td{
+padding:16px;
+border-bottom:1px solid #f1f5f9;
+}
+
+tbody tr:hover{
+background:#fafafa;
+}
+
+/* ======================================
+ACTIONS
+====================================== */
+
+.action-btn{
+border:none;
+padding:10px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.view-btn{
+background:#f8fafc;
+color:var(--primary);
+}
+
+.edit-btn{
+background:white;
+border:1px solid #0ea5e9;
+color:#0ea5e9;
+}
+
+.delete-btn{
+background:white;
+border:1px solid #ef4444;
+color:#ef4444;
+}
+
+.action-btn:hover{
+transform:translateY(-2px);
+}
+
+/* ======================================
+MODAL SYSTEM (same as products page)
+====================================== */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+justify-content:center;
+align-items:center;
+z-index:1000;
+backdrop-filter:blur(4px);
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-content{
+background:white;
+width:95%;
+max-width:650px;
+padding:25px;
+border-radius:18px;
+box-shadow:var(--hover);
+max-height:90vh;
+overflow-y:auto;
+animation:drop .3s ease;
+}
+
+/* ======================================
+MODAL HEADER
+====================================== */
+
+.modal-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.modal-header h2{
+font-size:20px;
+color:#444;
+}
+
+#closePurchaseModal,
+#closeEditPurchaseBtn{
+border:none;
+background:#f1f5f9;
+width:36px;
+height:36px;
+border-radius:50%;
+cursor:pointer;
+}
+
+/* ======================================
+DETAILS
+====================================== */
+
+.purchase-details p{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #eee;
+}
+
+/* ======================================
+ITEM TABLE
+====================================== */
+
+.items-wrapper{
+margin-top:15px;
+overflow:auto;
+}
+
+.items-wrapper table{
+min-width:600px;
+}
+
+/* ======================================
+MODAL ACTION BUTTONS
+====================================== */
+
+.action-buttons{
+display:flex;
+gap:12px;
+margin-top:20px;
+}
+
+.action-buttons button{
+flex:1;
+padding:14px;
+border:none;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#editPurchaseBtn{
+background:#ecfeff;
+color:#0891b2;
+}
+
+#deletePurchaseBtn{
+background:#fef2f2;
+color:#dc2626;
+}
+
+/* ======================================
+EDIT MODAL
+====================================== */
+
+.labo{
+color:#777;
+font-weight:500;
+margin-top:10px;
+margin-bottom:5px;
+}
+
+input{
+width:100%;
+padding:12px;
+border:1px solid var(--border);
+border-radius:12px;
+margin-bottom:10px;
+outline:none;
+}
+
+input:focus{
+border-color:var(--primary);
+}
+
+/* ======================================
+ITEM EDIT BLOCK
+====================================== */
+
+.edit-item{
+display:grid;
+grid-template-columns:2fr 1fr 1fr auto;
+gap:10px;
+margin-bottom:10px;
+align-items:center;
+}
+
+.edit-item button{
+padding:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#fee2e2;
+color:#dc2626;
+}
+
+/* ======================================
+MODAL ACTIONS
+====================================== */
+
+.modal-actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.modal-actions button{
+flex:1;
+padding:14px;
+border:none;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+}
+
+#savePurchaseBtn{
+background:var(--primary);
+color:white;
+}
+
+#closeEditPurchaseBtn{
+background:#f1f5f9;
+}
+
+/* ======================================
+ANIMATION
+====================================== */
+
+@keyframes drop{
+from{transform:translateY(-40px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+/* ======================================
+RESPONSIVE
+====================================== */
+
+@media(max-width:768px){
+
+body{padding:12px;}
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.header div{
+width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.edit-item{
+grid-template-columns:1fr;
+}
+
+.items-wrapper table{
+min-width:100%;
+}
+
+}
